@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using prjCapelo.Models;
+using prjCapelo.DAL;
 
 namespace prjCapelo.Views
 {
@@ -17,9 +19,45 @@ namespace prjCapelo.Views
     /// </summary>
     public partial class frmLogin : Window
     {
+        private Aluno aluno;
+
         public frmLogin()
         {
             InitializeComponent();
+        }
+
+        private void btnAcessar_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtLogin.Text))
+            {
+                Aluno aluno = AlunoDAO.BuscarPorMatricula(Convert.ToInt32(txtLogin.Text));
+                
+
+                if (aluno != null)
+                {
+                    if(txtSenha.Password.Equals(aluno.Senha))
+                    {
+                        frmPainelProfessor frm = new frmPainelProfessor();
+                        frm.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login ou Senha Inválido!", "Capelo",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    }                 
+
+                }
+                else
+                {
+                    MessageBox.Show("Login ou Senha Inválido!", "Capelo",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Login ou Senha Inválido!", "Capelo",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

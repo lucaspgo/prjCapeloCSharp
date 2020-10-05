@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="frmLogin" Height="450" Width="800">
     <Grid>
-        
+        <PasswordBox x:Name="txtSenha" HorizontalAlignment="Left" Margin="284,270,0,0" VerticalAlignment="Top" Width="295" Height="35" FontSize="19"/>
+        <TextBox x:Name="txtLogin" HorizontalAlignment="Left" Margin="284,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" Height="35" FontSize="20" FontFamily="Bahnschrift"/>
+        <Label Content="SENHA:" HorizontalAlignment="Left" Margin="190,270,0,0" VerticalAlignment="Top" Height="35" Width="83" FontSize="19" FontFamily="Bahnschrift"/>
+        <Label Content="LOGIN:" HorizontalAlignment="Left" Margin="190,216,0,0" VerticalAlignment="Top" Height="35" Width="83" FontSize="19" FontFamily="Bahnschrift"/>
+        <Image Height="117" Margin="322,24,330,0" VerticalAlignment="Top" Source="/Views/capeloo.png"/>
+        <Label Content="CAPELO" HorizontalAlignment="Left" Margin="322,132,0,0" VerticalAlignment="Top" Height="53" Width="148" FontSize="35" FontFamily="MV Boli"/>
+        <Button x:Name="btnAcessar" Content="ACESSAR" Margin="336,340,344,0" VerticalAlignment="Top" Height="39" FontSize="18" FontFamily="Bahnschrift SemiBold" Click="btnAcessar_Click"/>
+
     </Grid>
 </Window>
