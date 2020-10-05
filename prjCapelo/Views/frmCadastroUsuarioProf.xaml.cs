@@ -33,8 +33,12 @@ namespace prjCapelo.Views
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
+            
             if (!string.IsNullOrWhiteSpace(txtNome.Text))
             {
+                int id = (int)cboDisciplina.SelectedValue;
+                Disciplina disciplina = DisciplinaDAO.BuscarPorId(id);
+
                 pessoa = new Pessoa
                 {
                     NomeCompleto = txtNome.Text,
@@ -50,7 +54,8 @@ namespace prjCapelo.Views
                 {
                     DataIngresso = Convert.ToDateTime(txtDataIngresso.Text),
                     Senha = txtSenha.Text,
-                    Pessoa = pessoa
+                    Pessoa = pessoa,
+                    Disciplina = disciplina
 
                 };
 
@@ -72,6 +77,13 @@ namespace prjCapelo.Views
                 MessageBox.Show("Preencha as informações de cadastro!", "Cadastrar Usuário",
                         MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void cboDisciplina_Loaded(object sender, RoutedEventArgs e)
+        {
+            cboDisciplina.ItemsSource = DisciplinaDAO.Listar();
+            cboDisciplina.DisplayMemberPath = "Nome";
+            cboDisciplina.SelectedValuePath = "Id";
         }
     }
 }

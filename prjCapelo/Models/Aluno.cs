@@ -12,6 +12,7 @@ namespace prjCapelo.Models
         {
             Pessoa = new Pessoa();
         }
+        //[Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Key]
         public int Matricula { get; set; }
 
