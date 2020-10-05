@@ -1,0 +1,42 @@
+﻿<Window x:Class="prjCapelo.Views.frmSala"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:prjCapelo.Views"
+        mc:Ignorable="d"
+        Title="frmSala" Height="450" Width="418">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dgSala" AutoGenerateColumns="False" SelectionChanged="dgSala_SelectionChanged" Initialized="dgSala_Initialized" Margin="23,161,22,44" FontFamily="Bahnschrift SemiBold">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" 
+                    Header="Id" Width="1*" Visibility="Collapsed"/>
+                <DataGridTextColumn Binding="{Binding Nome}" 
+                    Header="Sala" Width="1*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="btnCadastrar" Content="CADASTRAR" HorizontalAlignment="Left" Margin="20,106,0,0" VerticalAlignment="Top" Height="20" Width="66" FontSize="10" FontFamily="Bahnschrift SemiBold" Click="btnCadastrar_Click"/>
+        <Button x:Name="btnAlterar" Content="ALTERAR" HorizontalAlignment="Left" Margin="100,106,0,0" VerticalAlignment="Top" Height="20" Width="58" FontSize="10" FontFamily="Bahnschrift SemiBold" Click="btnAlterar_Click"/>
+        <Button x:Name="btnExcluir" Content="EXCLUIR" HorizontalAlignment="Left" Margin="172,106,0,0" VerticalAlignment="Top" Height="20" Width="52" FontSize="10" FontFamily="Bahnschrift SemiBold" Click="btnExcluir_Click"/>
+        <Label x:Name="lbNome" Content="Nome:" HorizontalAlignment="Left" Margin="20,57,0,0" VerticalAlignment="Top" Height="31" Width="47" FontSize="13" FontFamily="Bahnschrift"/>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="69,63,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Height="15"/>
+        <Label x:Name="lbTitulo" Content="SALA" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="31" Width="109" FontSize="18" FontFamily="Bahnschrift"/>
+        <Image Height="79" Margin="276,33,33,0" VerticalAlignment="Top" Source="/Views/capeloo.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label Content="CAPELO" HorizontalAlignment="Left" Margin="276,106,0,0" VerticalAlignment="Top" Height="44" Width="112" FontSize="26" FontFamily="MV Boli"/>
+
+    </Grid>
+</Window>
