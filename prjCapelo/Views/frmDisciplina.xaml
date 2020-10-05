@@ -7,10 +7,6 @@
         mc:Ignorable="d"
         Title="frmDisciplina" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="91*"/>
-            <ColumnDefinition Width="69*"/>
-        </Grid.ColumnDefinitions>
         <DataGrid x:Name="dgDisciplina" AutoGenerateColumns="False" SelectionChanged="dgDisciplina_SelectionChanged" Initialized="dgDisciplina_Initialized" Margin="10,10,130,190">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" 
