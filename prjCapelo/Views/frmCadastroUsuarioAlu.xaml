@@ -25,8 +25,6 @@
 
         <Button x:Name="btnVoltar" Content="VOLTAR" HorizontalAlignment="Left" Margin="656,366,0,0" VerticalAlignment="Top" Height="34" Width="110" FontFamily="Bahnschrift SemiBold" FontSize="18" Click="btnVoltar_Click"/>
         <Button x:Name="btnCadastrar" Content="CADASTRAR" HorizontalAlignment="Left" Margin="37,366,0,0" VerticalAlignment="Top" Height="34" Width="118" FontFamily="Bahnschrift SemiBold" FontSize="18" Click="btnCadastrar_Click"/>
-        <Button Content="BUSCAR" HorizontalAlignment="Left" Margin="335,366,0,0" VerticalAlignment="Top" Height="34" Width="118" FontFamily="Bahnschrift SemiBold" FontSize="18"/>
-        <Button Content="ALTERAR" HorizontalAlignment="Left" Margin="185,366,0,0" VerticalAlignment="Top" Height="34" Width="118" FontFamily="Bahnschrift SemiBold" FontSize="18"/>
         <Label Content="CADASTRO DE ALUNO" HorizontalAlignment="Left" Margin="12,224,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="22"/>
         <Label Content="Data de Ingresso:" HorizontalAlignment="Left" Margin="13,265,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="18" Height="35"/>
         <TextBox x:Name="txtDataIngresso" HorizontalAlignment="Left" Margin="171,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Height="30"/>

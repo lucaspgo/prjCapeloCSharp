@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using prjCapelo.Models;
+using prjCapelo.DAL;
 
 namespace prjCapelo.Views
 {
@@ -17,6 +19,8 @@ namespace prjCapelo.Views
     /// </summary>
     public partial class frmCadastroUsuarioProf : Window
     {
+        private Pessoa pessoa;
+        private Professor professor;
         public frmCadastroUsuarioProf()
         {
             InitializeComponent();
@@ -25,6 +29,49 @@ namespace prjCapelo.Views
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void btnCadastrar_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtNome.Text))
+            {
+                pessoa = new Pessoa
+                {
+                    NomeCompleto = txtNome.Text,
+                    DataNascimento = Convert.ToDateTime(txtDataDeNasc.Text),
+                    Nacionalidade = txtNacionalidade.Text,
+                    Cpf = txtCPF.Text,
+                    Sexo = txtSexo.Text,
+                    Email = txtEmail.Text,
+
+                };
+
+                professor = new Professor
+                {
+                    DataIngresso = Convert.ToDateTime(txtDataIngresso.Text),
+                    Senha = txtSenha.Text,
+                    Pessoa = pessoa
+
+                };
+
+
+                if (ProfessorDAO.Cadastrar(professor))
+                {
+                    MessageBox.Show("Usuário cadastrado com sucesso!", "Cadastrar Usuário",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Usuário já existe!", "Cadastrar Usuário",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Preencha as informações de cadastro!", "Cadastrar Usuário",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

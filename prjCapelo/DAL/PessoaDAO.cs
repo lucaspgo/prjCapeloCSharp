@@ -9,13 +9,17 @@ namespace prjCapelo.DAL
     class PessoaDAO
     {
         private static Context _context = SingletonContext.GetInstance();
-                
+        public static Pessoa BuscarPorNome(string nome) =>
+                  _context.Pessoa.FirstOrDefault(x => x.NomeCompleto == nome);
         public static bool Cadastrar(Pessoa pessoa)
-        {            
-            _context.Pessoa.Add(pessoa);
-            _context.SaveChanges();
-            return true;         
-            
+        {
+            if (BuscarPorNome(pessoa.NomeCompleto) == null)
+            {
+                _context.Pessoa.Add(pessoa);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
         }
         public static void Remover(Pessoa pessoa)
         {

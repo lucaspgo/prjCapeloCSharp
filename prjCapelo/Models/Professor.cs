@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-
+using System;
 
 namespace prjCapelo.Models
 {
@@ -16,7 +16,7 @@ namespace prjCapelo.Models
         [Key]
         public int Matricula { get; set; }
 
-        public int DataIngresso { get; set; }
+        public DateTime DataIngresso { get; set; }
 
         public string Senha { get; set; }
 

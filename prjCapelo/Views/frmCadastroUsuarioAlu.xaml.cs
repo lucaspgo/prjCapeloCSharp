@@ -19,6 +19,8 @@ namespace prjCapelo.Views
     /// </summary>
     public partial class frmCadastroUsuarioAlu : Window
     {
+        private Pessoa pessoa;
+        private Aluno aluno;
         public frmCadastroUsuarioAlu()
         {
             InitializeComponent();
@@ -31,44 +33,45 @@ namespace prjCapelo.Views
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-            Pessoa pessoa = new Pessoa
+            if (!string.IsNullOrWhiteSpace(txtNome.Text))
             {
-                NomeCompleto = txtNome.Text,
-                DataNascimento = Convert.ToDateTime(txtDataDeNasc.Text),
-                Nacionalidade = txtNacionalidade.Text,
-                Cpf = txtCPF.Text,
-                Sexo = txtSexo.Text,
-                Email = txtEmail.Text,
-                
-            };
+                pessoa = new Pessoa
+                {
+                    NomeCompleto = txtNome.Text,
+                    DataNascimento = Convert.ToDateTime(txtDataDeNasc.Text),
+                    Nacionalidade = txtNacionalidade.Text,
+                    Cpf = txtCPF.Text,
+                    Sexo = txtSexo.Text,
+                    Email = txtEmail.Text,
 
-            Aluno aluno = new Aluno
-            {
-                DataIngresso = Convert.ToDateTime(txtDataIngresso.Text),
-                Senha = txtSenha.Text
+                };
 
-            };
+                aluno = new Aluno
+                {
+                    DataIngresso = Convert.ToDateTime(txtDataIngresso.Text),
+                    Senha = txtSenha.Text,
+                    Pessoa = pessoa
 
-            if (PessoaDAO.Cadastrar(pessoa))
-            {
+                };
+
+               
                 if (AlunoDAO.Cadastrar(aluno))
                 {
                     MessageBox.Show("Usuário cadastrado com sucesso!", "Cadastrar Usuário",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
                     MessageBox.Show("Usuário já existe!", "Cadastrar Usuário",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+
             }
             else
             {
-                MessageBox.Show("Usuário já existe!", "Cadastrar Usuário",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Preencha as informações de cadastro!", "Cadastrar Usuário",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-
 
 
         }

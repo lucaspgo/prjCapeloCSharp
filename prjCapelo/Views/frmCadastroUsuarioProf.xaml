@@ -11,29 +11,29 @@
         <Label Content="CAPELO" HorizontalAlignment="Left" Margin="684,17,0,0" VerticalAlignment="Top" Height="34" Width="85" FontSize="18" FontFamily="MV Boli"/>
         <Label Content="CADASTRO PESSOAL" HorizontalAlignment="Left" Margin="13,16,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="22"/>
         <Label Content="Nome:" HorizontalAlignment="Left" Margin="13,63,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Margin="79,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="690" Height="30"/>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="79,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="690" Height="30"/>
         <Label Content="Data de Nascimento:" HorizontalAlignment="Left" Margin="13,100,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="18" Height="35"/>
-        <TextBox HorizontalAlignment="Left" Margin="193,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Height="30"/>
+        <TextBox x:Name="txtDataDeNasc" HorizontalAlignment="Left" Margin="193,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Height="30"/>
         <Label Content="CPF:" HorizontalAlignment="Left" Margin="13,141,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Margin="79,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="321" Height="30"/>
+        <TextBox x:Name="txtCPF" HorizontalAlignment="Left" Margin="79,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="321" Height="30"/>
         <Label Content="Sexo:" HorizontalAlignment="Left" Margin="424,141,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Margin="486,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" Height="30"/>
+        <TextBox x:Name="txtSexo" HorizontalAlignment="Left" Margin="486,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" Height="30"/>
         <Label Content="Nacionalidade:" HorizontalAlignment="Left" Margin="418,102,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Margin="552,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Height="30"/>
-        <TextBox HorizontalAlignment="Left" Margin="79,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="690" Height="30"/>
+        <TextBox x:Name="txtNacionalidade" HorizontalAlignment="Left" Margin="552,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Height="30"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="79,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="690" Height="30"/>
         <Label Content="E-mail:" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="18"/>
 
         <Button x:Name="btnVoltar" Content="VOLTAR" HorizontalAlignment="Left" Margin="656,366,0,0" VerticalAlignment="Top" Height="34" Width="110" FontFamily="Bahnschrift SemiBold" FontSize="18" Click="btnVoltar_Click"/>
-        <Button Content="CADASTRAR" HorizontalAlignment="Left" Margin="37,366,0,0" VerticalAlignment="Top" Height="34" Width="118" FontFamily="Bahnschrift SemiBold" FontSize="18"/>
-        <Button Content="BUSCAR" HorizontalAlignment="Left" Margin="335,366,0,0" VerticalAlignment="Top" Height="34" Width="118" FontFamily="Bahnschrift SemiBold" FontSize="18"/>
-        <Button Content="ALTERAR" HorizontalAlignment="Left" Margin="185,366,0,0" VerticalAlignment="Top" Height="34" Width="118" FontFamily="Bahnschrift SemiBold" FontSize="18"/>
+        <Button x:Name="btnCadastrar" Content="CADASTRAR" HorizontalAlignment="Left" Margin="37,366,0,0" VerticalAlignment="Top" Height="34" Width="118" FontFamily="Bahnschrift SemiBold" FontSize="18" Click="btnCadastrar_Click"/>
         <Label Content="CADASTRO DE PROFESSOR" HorizontalAlignment="Left" Margin="12,224,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="22"/>
         <Label Content="Data de Ingresso:" HorizontalAlignment="Left" Margin="13,265,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="18" Height="35"/>
-        <TextBox HorizontalAlignment="Left" Margin="171,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Height="30"/>
+        <TextBox x:Name="txtDataIngresso" HorizontalAlignment="Left" Margin="171,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Height="30"/>
         <Label Content="Senha:" HorizontalAlignment="Left" Margin="13,305,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Margin="88,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="30"/>
-        <Label Content="Matricula:" HorizontalAlignment="Left" Margin="408,265,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="18" Height="35"/>
-        <TextBox HorizontalAlignment="Left" Margin="503,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263" Height="30" IsEnabled="False"/>
+        <TextBox x:Name="txtSenha" HorizontalAlignment="Left" Margin="88,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="30"/>
+        <Label Content="Matricula:" HorizontalAlignment="Left" Margin="411,307,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="18" Height="35"/>
+        <TextBox x:Name="txtMatricula" HorizontalAlignment="Left" Margin="506,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263" Height="30" IsEnabled="False"/>
+        <Label Content="Disciplina:" HorizontalAlignment="Left" Margin="411,265,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="18" Height="35"/>
+        <ComboBox HorizontalAlignment="Left" Margin="506,265,0,0" VerticalAlignment="Top" Width="260" Height="32"/>
 
     </Grid>
 </Window>
