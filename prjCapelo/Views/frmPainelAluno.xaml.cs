@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjCapelo.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +21,12 @@ namespace prjCapelo.Views
         public frmPainelAluno()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {           
+;            MessageBox.Show($"{((frmLogin)Application.Current.MainWindow).txtLogin.Text}", "Capelo",
+                                   MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }
