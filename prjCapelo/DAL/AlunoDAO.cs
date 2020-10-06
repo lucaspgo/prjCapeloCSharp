@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using prjCapelo.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace prjCapelo.DAL
 {
@@ -32,7 +33,7 @@ namespace prjCapelo.DAL
             _context.SaveChanges();
         }
         public static List<Aluno> Listar() =>
-            _context.Aluno.ToList();
+            _context.Aluno.Include(x => x.Pessoa).ToList();
         public static Aluno BuscarPorId(int id) =>
             _context.Aluno.Find(id);
     }
