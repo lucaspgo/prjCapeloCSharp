@@ -21,7 +21,7 @@ namespace prjCapelo.Views
         {
             InitializeComponent();
         }
-
+        //((frmLogin)Application.Current.MainWindow).txtLogin.Text código que puxa a matricula        
         private void btnCadastrarUsuario_Click(object sender, RoutedEventArgs e)
         {
             frmCadastrarUsuario1 frm = new frmCadastrarUsuario1();
