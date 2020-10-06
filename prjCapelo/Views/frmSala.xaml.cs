@@ -26,7 +26,6 @@ namespace prjCapelo.Views
         {
             InitializeComponent();
         }
-
         private void PopularDataGrid()
         {
 
@@ -44,7 +43,6 @@ namespace prjCapelo.Views
 
             salas = new List<dynamic>();
         }
-
         private void dgSala_Initialized(object sender, EventArgs e)
         {
 
@@ -54,6 +52,8 @@ namespace prjCapelo.Views
         {
             PopularDataGrid();
         }
+
+
         //Por algum motivo doubleclick da erro, ver depois
         private void dgSala_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -79,6 +79,7 @@ namespace prjCapelo.Views
                         PopularDataGrid();
                         MessageBox.Show("Sala alterada com sucesso!!!", "Capelo",
                             MessageBoxButton.OK, MessageBoxImage.Information);
+                            
                     }
                     else
                     {
@@ -107,7 +108,7 @@ namespace prjCapelo.Views
                     if (SalaDAO.Remover(sala))
                     {
                         PopularDataGrid();
-                        MessageBox.Show("Sala cadastrada com sucesso!!!", "Capelo",
+                        MessageBox.Show("Sala removida com sucesso!!!", "Capelo",
                             MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
@@ -139,6 +140,8 @@ namespace prjCapelo.Views
                     PopularDataGrid();
                     MessageBox.Show("Sala cadastrada com sucesso!!!", "Vendas WPF",
                         MessageBoxButton.OK, MessageBoxImage.Information);
+                    
+
                 }
                 else
                 {
@@ -153,5 +156,6 @@ namespace prjCapelo.Views
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        
     }
 }

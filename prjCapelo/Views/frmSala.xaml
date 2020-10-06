@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:prjCapelo.Views"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="frmSala" Height="450" Width="418">
     <Grid>
         <Grid.ColumnDefinitions>

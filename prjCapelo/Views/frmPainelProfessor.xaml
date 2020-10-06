@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="frmPainelProfessor" Height="450" Width="800">
     <Grid>
+        <Menu Height="20" Padding="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="800">
+            <MenuItem Header="_Usuario">
+                <MenuItem x:Name="menuCadastrarUsuario" Header="_Cadastrar" Click="menuCadastrarUsuario_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="menuCadastrarSala" Header="_Sala" Click="menuCadastrarSala_Click"/>
+            <MenuItem x:Name="menuCadastrarDisciplina" Header="_Disciplina" Click="menuCadastrarDisciplina_Click"/>
+        </Menu>
+
         <Image Height="117" Margin="76,133,576,0" VerticalAlignment="Top" Source="/Views/capeloo.png"/>
         <Label Content="CAPELO" HorizontalAlignment="Left" Margin="76,241,0,0" VerticalAlignment="Top" Height="53" Width="148" FontSize="35" FontFamily="MV Boli"/>
 
