@@ -41,7 +41,7 @@ namespace prjCapelo.Views
                     {
                         if (txtSenha.Password.Equals(aluno.Senha))
                         {
-                            frmPainelAluno frm = new frmPainelAluno();
+                            frmAula frm = new frmAula();
                             frm.ShowDialog();
                         }
                         else
