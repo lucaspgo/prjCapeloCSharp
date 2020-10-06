@@ -24,6 +24,21 @@ namespace prjCapelo.Views
         public frmCadastroUsuarioAlu()
         {
             InitializeComponent();
+            LimparFormulario();
+        }
+
+        public void LimparFormulario()
+        {
+            txtNome.Clear();
+            txtDataDeNasc.Clear();
+            txtNacionalidade.Clear();
+            txtCPF.Clear();
+            txtSexo.Clear();
+            txtEmail.Clear();
+            txtDataIngresso.Clear();
+            txtSenha.Clear();
+            aluno = new Aluno();
+            pessoa = new Pessoa();
         }
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
@@ -59,6 +74,7 @@ namespace prjCapelo.Views
                 {
                     MessageBox.Show("Usuário cadastrado com sucesso!", "Cadastrar Usuário",
                         MessageBoxButton.OK, MessageBoxImage.Information);
+                        LimparFormulario();
                 }
                 else
                 {
@@ -72,8 +88,6 @@ namespace prjCapelo.Views
                 MessageBox.Show("Preencha as informações de cadastro!", "Cadastrar Usuário",
                         MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-
         }
     }
 }

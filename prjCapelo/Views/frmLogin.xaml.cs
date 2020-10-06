@@ -31,19 +31,47 @@ namespace prjCapelo.Views
             if (!string.IsNullOrWhiteSpace(txtLogin.Text))
             {
                 Aluno aluno = AlunoDAO.BuscarPorMatricula(Convert.ToInt32(txtLogin.Text));
-                
 
                 if (aluno != null)
                 {
                     if(txtSenha.Password.Equals(aluno.Senha))
                     {
-                        frmPainelProfessor frm = new frmPainelProfessor();
+                        frmPainelAluno frm = new frmPainelAluno();
                         frm.ShowDialog();
                     }
                     else
                     {
-                        MessageBox.Show("Login ou Senha Inválido!", "Capelo",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+
+                        if (!string.IsNullOrWhiteSpace(txtLogin.Text))
+                        {
+                            Professor professor = ProfessorDAO.BuscarPorMatricula(Convert.ToInt32(txtLogin.Text));
+
+
+                            if (professor != null)
+                            {
+                                if (txtSenha.Password.Equals(professor.Senha))
+                                {
+                                    frmPainelProfessor frm = new frmPainelProfessor();
+                                    frm.ShowDialog();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Login ou Senha Inválido!", "Capelo",
+                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Login ou Senha Inválido!", "Capelo",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Login ou Senha Inválido!", "Capelo",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }                 
 
                 }
@@ -55,7 +83,7 @@ namespace prjCapelo.Views
             }
             else
             {
-                MessageBox.Show("Login ou Senha Inválido!", "Capelo",
+                MessageBox.Show("Login ou senha não preenchidos!", "Capelo",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
