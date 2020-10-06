@@ -35,7 +35,7 @@
                                     Header="Fim" Width="1*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnMarcarAula" Content="Marcar Aula" HorizontalAlignment="Left" Margin="10,396,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnMarcarAula" Content="Marcar Aula" HorizontalAlignment="Left" Margin="10,396,0,0" VerticalAlignment="Top" Click="btnMarcarAula_Click"/>
         <Button x:Name="btnCancelarAula" Content="Cancelar Aula" HorizontalAlignment="Left" Margin="96,396,0,0" VerticalAlignment="Top"/>
         <Label Content="Inicio:" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top"/>
 

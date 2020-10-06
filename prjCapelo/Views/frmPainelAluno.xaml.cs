@@ -24,9 +24,14 @@ namespace prjCapelo.Views
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {           
-;            MessageBox.Show($"{((frmLogin)Application.Current.MainWindow).txtLogin.Text}", "Capelo",
-                                   MessageBoxButton.OK, MessageBoxImage.Error);
+        {
+            lblMatricula.Content = ((frmLogin)Application.Current.MainWindow).txtLogin.Text;
+        }
+
+        private void menuAula_Click(object sender, RoutedEventArgs e)
+        {
+            frmAula frm = new frmAula();
+            frm.ShowDialog();
         }
     }
 }

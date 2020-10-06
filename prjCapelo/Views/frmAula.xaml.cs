@@ -45,9 +45,9 @@ namespace prjCapelo.Views
             }
 
             List<Sala> salas = SalaDAO.Listar();
-            cboProfessor.ItemsSource = salas;
-            cboProfessor.DisplayMemberPath = "Nome";
-            cboProfessor.SelectedValuePath = "Id";            
+            cboSala.ItemsSource = salas;
+            cboSala.DisplayMemberPath = "Nome";
+            cboSala.SelectedValuePath = "Id";
         }
 
         private void CarregarData()
@@ -77,18 +77,18 @@ namespace prjCapelo.Views
             listaDates.Add("17:30");
             listaDates.Add("18:00");
 
-            foreach(string hora in listaDates)
+            foreach (string hora in listaDates)
             {
                 cboHoraInicio.Items.Add(hora);
                 cboHoraInicio.SelectedIndex = 0;
                 cboHoraFim.Items.Add(hora);
                 cboHoraFim.SelectedIndex = 0;
             }
-            
+
         }
 
         private void cboDisciplina_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {            
+        {
             List<Professor> professores = ProfessorDAO.BuscarPorDisciplina(Convert.ToInt32(cboDisciplina.SelectedValue));
             cboProfessor.ItemsSource = professores;
             cboProfessor.DisplayMemberPath = "Pessoa.NomeCompleto";
@@ -103,12 +103,43 @@ namespace prjCapelo.Views
 
         private void cboProfessor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
         }
 
         private void dpData_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void btnMarcarAula_Click(object sender, RoutedEventArgs e)
+        {
+            if (cboDisciplina.Text != null && cboProfessor != null && cboHoraInicio != null
+                && cboHoraFim != null && dpData != null && cboSala != null)
+            {
+                bool datasLiberadas = true;
+                foreach (Aula aula in AulaDAO.BuscarPorProfessoreData(Convert.ToInt32(cboProfessor.SelectedValue), Convert.ToDateTime(dpData.SelectedDate)))
+                {
+                    if (aula.DataInicio >= Convert.ToDateTime($"{dpData.SelectedDate.Value.ToString("dd/MM/yyyy")} {cboHoraInicio.Text}") && aula.DataFim > Convert.ToDateTime($"{dpData.SelectedDate.Value.ToString("dd/MM/yyyy")} {cboHoraFim.Text}"))
+                    {
+                        datasLiberadas = false;
+                    }
+                }
+
+                if (datasLiberadas)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Este horario ja esta reservado", "Agendar Aula",
+                        MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Preencha todos os dados para continuar", "Agendar Aula",
+                        MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
     }
 }
