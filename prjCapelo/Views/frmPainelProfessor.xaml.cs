@@ -27,5 +27,22 @@ namespace prjCapelo.Views
             frmCadastrarUsuario1 frm = new frmCadastrarUsuario1();
             frm.ShowDialog();
         }
+
+
+        private void menuCadastrarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            frmCadastrarUsuario1 frm = new frmCadastrarUsuario1();
+            frm.ShowDialog();
+        }
+        private void menuCadastrarDisciplina_Click(object sender, RoutedEventArgs e)
+        {
+            frmDisciplina frm = new frmDisciplina();
+            frm.ShowDialog();
+        }
+        private void menuCadastrarSala_Click(object sender, RoutedEventArgs e)
+        {
+            frmSala frm = new frmSala();
+            frm.ShowDialog();
+        }
     }
 }
