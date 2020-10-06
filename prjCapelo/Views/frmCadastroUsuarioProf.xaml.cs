@@ -54,6 +54,13 @@ namespace prjCapelo.Views
                 int id = (int)cboDisciplina.SelectedValue;
                 Disciplina disciplina = DisciplinaDAO.BuscarPorId(id);
 
+                Random randNum = new Random();
+                string matricula = $"2{randNum.Next(99)}";
+                while (AlunoDAO.BuscarPorMatricula(Convert.ToInt32(matricula)) != null)
+                {
+                    matricula = $"2{randNum.Next(99)}";
+                }
+
                 pessoa = new Pessoa
                 {
                     NomeCompleto = txtNome.Text,
@@ -67,6 +74,7 @@ namespace prjCapelo.Views
 
                 professor = new Professor
                 {
+                    Matricula = Convert.ToInt32(matricula),
                     DataIngresso = Convert.ToDateTime(txtDataIngresso.Text),
                     Senha = txtSenha.Text,
                     Pessoa = pessoa,

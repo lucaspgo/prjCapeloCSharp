@@ -50,8 +50,15 @@ namespace prjCapelo.Views
         {
             if (!string.IsNullOrWhiteSpace(txtNome.Text))
             {
-                pessoa = new Pessoa
+                Random randNum = new Random();
+                string matricula = $"1{randNum.Next(99)}";
+                while(AlunoDAO.BuscarPorMatricula(Convert.ToInt32(matricula)) != null)
                 {
+                    matricula = $"1{randNum.Next(99)}";
+                }
+
+                pessoa = new Pessoa
+                {                    
                     NomeCompleto = txtNome.Text,
                     DataNascimento = Convert.ToDateTime(txtDataDeNasc.Text),
                     Nacionalidade = txtNacionalidade.Text,
@@ -63,6 +70,7 @@ namespace prjCapelo.Views
 
                 aluno = new Aluno
                 {
+                    Matricula = Convert.ToInt32(matricula),
                     DataIngresso = Convert.ToDateTime(txtDataIngresso.Text),
                     Senha = txtSenha.Text,
                     Pessoa = pessoa

@@ -28,58 +28,57 @@ namespace prjCapelo.Views
 
         private void btnAcessar_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtLogin.Text))
+            if (!string.IsNullOrWhiteSpace(txtLogin.Text) && !string.IsNullOrWhiteSpace(txtSenha.Password))
             {
-                Aluno aluno = AlunoDAO.BuscarPorMatricula(Convert.ToInt32(txtLogin.Text));
+                int digitoVerificador = Convert.ToInt32(txtLogin.Text.Substring(0, 1));
 
-                if (aluno != null)
+                
+                if (digitoVerificador == 1)
                 {
-                    if(txtSenha.Password.Equals(aluno.Senha))
-                    {
-                        frmPainelAluno frm = new frmPainelAluno();
-                        frm.ShowDialog();
-                    }
-                    else
-                    {
+                    Aluno aluno = AlunoDAO.BuscarPorMatricula(Convert.ToInt32(txtLogin.Text));
 
-                        if (!string.IsNullOrWhiteSpace(txtLogin.Text))
+                    if (aluno != null)
+                    {
+                        if (txtSenha.Password.Equals(aluno.Senha))
                         {
-                            Professor professor = ProfessorDAO.BuscarPorMatricula(Convert.ToInt32(txtLogin.Text));
-
-
-                            if (professor != null)
-                            {
-                                if (txtSenha.Password.Equals(professor.Senha))
-                                {
-                                    frmPainelProfessor frm = new frmPainelProfessor();
-                                    frm.ShowDialog();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Login ou Senha Inválido!", "Capelo",
-                                    MessageBoxButton.OK, MessageBoxImage.Error);
-                                }
-
-                            }
-                            else
-                            {
-                                MessageBox.Show("Login ou Senha Inválido!", "Capelo",
-                                MessageBoxButton.OK, MessageBoxImage.Error);
-                            }
+                            frmPainelAluno frm = new frmPainelAluno();
+                            frm.ShowDialog();
                         }
                         else
                         {
                             MessageBox.Show("Login ou Senha Inválido!", "Capelo",
-                                MessageBoxButton.OK, MessageBoxImage.Error);
+                                    MessageBoxButton.OK, MessageBoxImage.Error);
                         }
-                    }                 
-
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login ou Senha Inválido!", "Capelo",
+                                   MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
-                else
+                else if(digitoVerificador == 2)
                 {
-                    MessageBox.Show("Login ou Senha Inválido!", "Capelo",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                    Professor professor = ProfessorDAO.BuscarPorMatricula(Convert.ToInt32(txtLogin.Text));
+
+                    if (professor != null)
+                    {
+                        if (txtSenha.Password.Equals(professor.Senha))
+                        {
+                            frmPainelProfessor frm = new frmPainelProfessor();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Login ou Senha Inválido!", "Capelo",
+                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login ou Senha Inválido!", "Capelo",
+                                   MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }                
             }
             else
             {
