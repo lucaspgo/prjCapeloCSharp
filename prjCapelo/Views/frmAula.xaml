@@ -19,7 +19,7 @@
         <Label x:Name="lbSala" Content="Sala:" HorizontalAlignment="Left" Margin="10,356,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cboSala" HorizontalAlignment="Left" Margin="52,360,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="Minhas Aulas:" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dgAulas" Margin="10,44,90,229">
+        <DataGrid x:Name="dgAulas" AutoGenerateColumns="False" Margin="10,44,90,229">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" 
                                     Header="Id" Width="1*" Visibility="Collapsed"/>
@@ -36,7 +36,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnMarcarAula" Content="Marcar Aula" HorizontalAlignment="Left" Margin="10,396,0,0" VerticalAlignment="Top" Click="btnMarcarAula_Click"/>
-        <Button x:Name="btnCancelarAula" Content="Cancelar Aula" HorizontalAlignment="Left" Margin="96,396,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnCancelarAula" Content="Cancelar Aula" HorizontalAlignment="Left" Margin="96,396,0,0" VerticalAlignment="Top" Click="btnCancelarAula_Click"/>
         <Label Content="Inicio:" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top"/>
 
     </Grid>

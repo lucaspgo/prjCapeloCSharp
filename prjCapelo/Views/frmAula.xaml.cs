@@ -20,6 +20,8 @@ namespace prjCapelo.Views
     /// </summary>
     public partial class frmAula : Window
     {
+        private List<dynamic> aulas = new List<dynamic>();
+        Aula aula;
         public frmAula()
         {
             InitializeComponent();
@@ -27,7 +29,30 @@ namespace prjCapelo.Views
 
         private void Window_Initialized(object sender, EventArgs e)
         {
+            PopularDataGrid();
             CarregarComboBoxes();
+        }
+
+        private void PopularDataGrid()
+        {
+            List<Aula> aulasGrid = AulaDAO.BuscarPorMatricula(Convert.ToInt32(((frmLogin)Application.Current.MainWindow).txtLogin.Text));
+            foreach (Aula aula in aulasGrid)
+            {
+                dynamic item = new
+                {
+                    Id = aula.Id,
+                    Disciplina = aula.Professor.Disciplina.Nome,
+                    NomeProfessor = aula.Professor.Pessoa.NomeCompleto,
+                    Data = aula.Data.ToString("dd/MM/yyyy"),
+                    Inicio = aula.DataInicio.ToString("HH:mm"),
+                    Fim = aula.DataFim.ToString("HH:mm")
+                };
+                aulas.Add(item);
+            }
+            dgAulas.ItemsSource = aulas;
+            dgAulas.Items.Refresh();
+
+            aulas = new List<dynamic>();
         }
 
         private void CarregarComboBoxes()
@@ -117,28 +142,103 @@ namespace prjCapelo.Views
                 && cboHoraFim != null && dpData != null && cboSala != null)
             {
                 bool datasLiberadas = true;
+                DateTime dataInicio = Convert.ToDateTime($"{dpData.SelectedDate.Value.ToString("dd/MM/yyyy")} {cboHoraInicio.Text}");
+                DateTime dataFim = Convert.ToDateTime($"{dpData.SelectedDate.Value.ToString("dd/MM/yyyy")} {cboHoraFim.Text}");
+
                 foreach (Aula aula in AulaDAO.BuscarPorProfessoreData(Convert.ToInt32(cboProfessor.SelectedValue), Convert.ToDateTime(dpData.SelectedDate)))
                 {
-                    if (aula.DataInicio >= Convert.ToDateTime($"{dpData.SelectedDate.Value.ToString("dd/MM/yyyy")} {cboHoraInicio.Text}") && aula.DataFim > Convert.ToDateTime($"{dpData.SelectedDate.Value.ToString("dd/MM/yyyy")} {cboHoraFim.Text}"))
+                    
+                    if ((dataInicio >= aula.DataInicio && dataInicio < aula.DataFim))
                     {
                         datasLiberadas = false;
                     }
                 }
 
-                if (datasLiberadas)
+                if(dataInicio > DateTime.Now)
                 {
+                    if (dataInicio < dataFim)
+                    {
+                        if (datasLiberadas)
+                        {
+                            int idProfessor = (int)cboProfessor.SelectedValue;
+                            Professor professor = ProfessorDAO.BuscarPorId(idProfessor);
 
+                            int idSala = (int)cboSala.SelectedValue;
+                            Sala sala = SalaDAO.BuscarPorId(idSala);
+
+                            Aluno aluno = AlunoDAO.BuscarPorMatricula(Convert.ToInt32(((frmLogin)Application.Current.MainWindow).txtLogin.Text));
+
+                            aula = new Aula
+                            {
+                                Aluno = aluno,
+                                Professor = professor,
+                                Sala = sala,
+                                Data = Convert.ToDateTime($"{dpData.SelectedDate.Value.ToString("dd/MM/yyyy")} 00:00:00"),
+                                DataInicio = Convert.ToDateTime($"{dpData.SelectedDate.Value.ToString("dd/MM/yyyy")} {cboHoraInicio.Text}"),
+                                DataFim = Convert.ToDateTime($"{dpData.SelectedDate.Value.ToString("dd/MM/yyyy")} {cboHoraFim.Text}")
+                            };
+
+                            if (AulaDAO.Cadastrar(aula))
+                            {
+                                PopularDataGrid();
+                                MessageBox.Show("Aula Cadastrada com Sucesso", "Agendar Aula",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Este horario ja esta reservado", "Agendar Aula",
+                                MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("O horário de inicio não pode ser maior ou igual o horário final.", "Agendar Aula",
+                                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Este horario ja esta reservado", "Agendar Aula",
-                        MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show("Você não pode marcar data e horário menor que a data e hora atuais.", "Agendar Aula",
+                                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
+                
+                
             }
             else
             {
                 MessageBox.Show("Preencha todos os dados para continuar", "Agendar Aula",
                         MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+
+        private void btnCancelarAula_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgAulas.SelectedItem != null)
+            {
+                aula = AulaDAO.BuscarPorId(((dynamic)dgAulas.SelectedItem).Id);
+
+                if (MessageBox.Show($"Deseja realmente cancelar sua Aula?",
+                    "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    if (AulaDAO.Remover(aula))
+                    {
+                        PopularDataGrid();
+                        MessageBox.Show("Aula removida com sucesso!", "Capelo",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Algo deu errado, contacte o time de desenvolvimento.", "Capelo",
+                       MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Selecione um dado na tabela para a exclusão.", "Capelo",
+                       MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
