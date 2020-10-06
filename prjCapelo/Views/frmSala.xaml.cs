@@ -1,4 +1,6 @@
-﻿using System;
+﻿using prjCapelo.DAL;
+using prjCapelo.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -9,13 +11,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using prjCapelo.DAL;
-using prjCapelo.Models;
 
 namespace prjCapelo.Views
 {
     /// <summary>
-    /// Interaction logic for frmSala.xaml
+    /// Interaction logic for frmSalaa.xaml
     /// </summary>
     public partial class frmSala : Window
     {
@@ -35,7 +35,7 @@ namespace prjCapelo.Views
                 dynamic item = new
                 {
                     Id = sala.Id,
-                    Nome = sala.Nome,          
+                    Nome = sala.Nome,
                 };
                 salas.Add(item);
             }
@@ -55,13 +55,13 @@ namespace prjCapelo.Views
             PopularDataGrid();
         }
         //Por algum motivo doubleclick da erro, ver depois
-        private void dgDisciplina_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void dgSala_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            dynamic disciplina = (dynamic)dgSala.SelectedItem;
+            dynamic sala = (dynamic)dgSala.SelectedItem;
 
-            if (disciplina != null)
+            if (sala != null)
             {
-                txtNome.Text = disciplina.Nome.ToString();
+                txtNome.Text = sala.Nome.ToString();
             }
         }
 
@@ -77,7 +77,7 @@ namespace prjCapelo.Views
                     if (SalaDAO.Alterar(sala))
                     {
                         PopularDataGrid();
-                        MessageBox.Show("Disciplina alterada com sucesso!!!", "Capelo",
+                        MessageBox.Show("Sala alterada com sucesso!!!", "Capelo",
                             MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
@@ -101,13 +101,13 @@ namespace prjCapelo.Views
             {
                 sala = SalaDAO.BuscarPorId(((dynamic)dgSala.SelectedItem).Id);
 
-                if (MessageBox.Show($"Deseja realmente excluir a Disciplina '{sala.Nome}'?",
+                if (MessageBox.Show($"Deseja realmente excluir a Sala '{sala.Nome}'?",
                     "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     if (SalaDAO.Remover(sala))
                     {
                         PopularDataGrid();
-                        MessageBox.Show("Disciplina cadastrada com sucesso!!!", "Capelo",
+                        MessageBox.Show("Sala cadastrada com sucesso!!!", "Capelo",
                             MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
@@ -137,7 +137,7 @@ namespace prjCapelo.Views
                 if (SalaDAO.Cadastrar(sala))
                 {
                     PopularDataGrid();
-                    MessageBox.Show("Disciplina cadastrada com sucesso!!!", "Vendas WPF",
+                    MessageBox.Show("Sala cadastrada com sucesso!!!", "Vendas WPF",
                         MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
