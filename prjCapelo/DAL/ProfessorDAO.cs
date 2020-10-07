@@ -37,8 +37,8 @@ namespace prjCapelo.DAL
             _context.Professor.Update(professor);
             _context.SaveChanges();
         }
-        public static List<Professor> Listar() =>
-            _context.Professor.Include(x => x.Disciplina).Where(x => x.Disciplina.Id == idDisciplina).ToList();
+        public static List<Professor>Listar()=>
+            _context.Professor.Include(x=> x.Pessoa).ToList();
         public static Professor BuscarPorId(int id) =>
             _context.Professor.Find(id);
     }

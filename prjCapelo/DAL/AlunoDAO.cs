@@ -33,7 +33,7 @@ namespace prjCapelo.DAL
             _context.SaveChanges();
         }
         public static List<Aluno> Listar() =>
-            _context.Aluno.ToList();
+            _context.Aluno.Include(x => x.Pessoa).ToList();
         public static Aluno BuscarPorId(int id) =>
             _context.Aluno.Find(id);
     }
