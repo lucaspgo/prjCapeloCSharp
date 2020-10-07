@@ -91,6 +91,11 @@ namespace prjCapelo.Views
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("CPF INválido.", "Cadastrar Usuário",
+                           MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
             else
             {

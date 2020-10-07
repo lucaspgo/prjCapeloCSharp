@@ -82,9 +82,14 @@ namespace prjCapelo.Views
                     }
                     else
                     {
-                        MessageBox.Show("Usuário já existe!", "Cadastrar Usuário",
+                        MessageBox.Show("Usuário já existe", "Cadastrar Usuário",
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
+                }
+                else
+                {
+                    MessageBox.Show("CPF INválido.", "Cadastrar Usuário",
+                           MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
             }
