@@ -49,7 +49,15 @@ namespace prjCapelo.Views
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtNome.Text))
+            if ((!string.IsNullOrWhiteSpace(txtNome.Text) &&
+                dpDataNascimento.SelectedDate != null &&
+                !string.IsNullOrWhiteSpace(txtNacionalidade.Text) &&
+                !string.IsNullOrWhiteSpace(txtCPF.Text) &&
+                !string.IsNullOrWhiteSpace(txtSexo.Text) &&
+                !string.IsNullOrWhiteSpace(txtEmail.Text) &&
+                dpDataIngresso.SelectedDate != null &&
+                !string.IsNullOrWhiteSpace(txtSenha.Text)
+                ))
             {
                 if (Validacao.ValidarCpf(txtCPF.Text.Trim()))
                 {
