@@ -49,6 +49,12 @@ namespace prjCapelo.Views
             frm.ShowDialog();
         }
 
+        private void menuBuscarUsuarios_Click(object sender, RoutedEventArgs e)
+        {
+            frmBuscarUsuarios frm = new frmBuscarUsuarios();
+            frm.ShowDialog();
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             PopularDataGrid();

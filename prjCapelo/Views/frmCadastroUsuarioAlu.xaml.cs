@@ -51,10 +51,10 @@ namespace prjCapelo.Views
             if (!string.IsNullOrWhiteSpace(txtNome.Text))
             {
                 Random randNum = new Random();
-                string matricula = $"1{randNum.Next(99)}";
+                string matricula = $"1{randNum.Next(10,99)}";
                 while(AlunoDAO.BuscarPorMatricula(Convert.ToInt32(matricula)) != null)
                 {
-                    matricula = $"1{randNum.Next(99)}";
+                    matricula = $"1{randNum.Next(10,99)}";
                 }               
 
                 aluno = new Aluno

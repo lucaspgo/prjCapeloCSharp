@@ -30,8 +30,6 @@
         <TextBox x:Name="txtDataIngresso" HorizontalAlignment="Left" Margin="171,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Height="30"/>
         <Label Content="Senha:" HorizontalAlignment="Left" Margin="13,305,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="18"/>
         <TextBox x:Name="txtSenha" HorizontalAlignment="Left" Margin="88,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="30"/>
-        <Label Content="Matricula:" HorizontalAlignment="Left" Margin="408,265,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="18" Height="35"/>
-        <TextBox x:Name="txtMatricula" HorizontalAlignment="Left" Margin="503,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263" Height="30" IsEnabled="False"/>
 
     </Grid>
 </Window>

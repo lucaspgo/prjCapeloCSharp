@@ -40,8 +40,9 @@ namespace prjCapelo.Views
 
         private void PopularDataGrid()
         {
+            String valor = cboUsuario.SelectedItem.ToString();
 
-            if (cboUsuario.Text.Equals("Alunos"))
+            if (cboUsuario.SelectedItem.ToString() == "Alunos")
             {
                 foreach (Aluno aluno in AlunoDAO.Listar())
                 {
@@ -59,7 +60,7 @@ namespace prjCapelo.Views
 
                 alunos = new List<dynamic>();
             }
-            else if (cboUsuario.Text.Equals("Professores"))
+            else if (cboUsuario.SelectedItem.ToString() == "Professores")
             {
                 foreach (Professor professor in ProfessorDAO.Listar())
                 {
@@ -85,6 +86,7 @@ namespace prjCapelo.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            cboUsuario.SelectedIndex = 0;
             PopularDataGrid();
         }
     }

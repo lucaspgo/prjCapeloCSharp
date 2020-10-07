@@ -7,23 +7,23 @@
         mc:Ignorable="d"
         Title="frmAula" Height="450" Width="800" Initialized="Window_Initialized">
     <Grid>
-        <DatePicker x:Name="dpData" HorizontalAlignment="Left" Margin="56,293,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.055,2.606" SelectedDateChanged="dpData_SelectedDateChanged"/>
-        <Label Content="Inicio:" HorizontalAlignment="Left" Margin="234,291,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboHoraInicio" HorizontalAlignment="Left" Margin="280,291,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Fim:" HorizontalAlignment="Left" Margin="243,322,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboHoraFim" HorizontalAlignment="Left" Margin="280,325,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="cboProfessor" HorizontalAlignment="Left" Margin="70,253,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboProfessor_SelectionChanged"/>
-        <ComboBox x:Name="cboDisciplina" HorizontalAlignment="Left" Margin="69,214,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboDisciplina_SelectionChanged"/>
-        <Label x:Name="lbDisciplina" Content="Disciplina:" HorizontalAlignment="Left" Margin="6,210,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbProfessor" Content="Professor:" HorizontalAlignment="Left" Margin="7,251,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbSala" Content="Sala:" HorizontalAlignment="Left" Margin="10,356,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboSala" HorizontalAlignment="Left" Margin="52,360,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Minhas Aulas:" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top"/>
-        
-        <Button x:Name="btnMarcarAula" Content="Marcar Aula" HorizontalAlignment="Left" Margin="10,396,0,0" VerticalAlignment="Top" Click="btnMarcarAula_Click"/>
-        <Button x:Name="btnCancelarAula" Content="Cancelar Aula" HorizontalAlignment="Left" Margin="96,396,0,0" VerticalAlignment="Top" Click="btnCancelarAula_Click"/>
-        <Label Content="Inicio:" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dgAulas" AutoGenerateColumns="False" Margin="10,52,10,225">
+        <DatePicker x:Name="dpData" HorizontalAlignment="Left" Margin="290,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.055,2.606" SelectedDateChanged="dpData_SelectedDateChanged"/>
+        <Label Content="Inicio:" HorizontalAlignment="Left" Margin="245,72,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift"/>
+        <ComboBox x:Name="cboHoraInicio" HorizontalAlignment="Left" Margin="291,74,0,0" VerticalAlignment="Top" Width="137"/>
+        <Label Content="Fim:" HorizontalAlignment="Left" Margin="245,107,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift"/>
+        <ComboBox x:Name="cboHoraFim" HorizontalAlignment="Left" Margin="291,108,0,0" VerticalAlignment="Top" Width="137"/>
+        <ComboBox x:Name="cboProfessor" HorizontalAlignment="Left" Margin="81,74,0,0" VerticalAlignment="Top" Width="135" SelectionChanged="cboProfessor_SelectionChanged"/>
+        <ComboBox x:Name="cboDisciplina" HorizontalAlignment="Left" Margin="81,40,0,0" VerticalAlignment="Top" Width="135" SelectionChanged="cboDisciplina_SelectionChanged"/>
+        <Label x:Name="lbDisciplina" Content="Disciplina:" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift"/>
+        <Label x:Name="lbProfessor" Content="Professor:" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift"/>
+        <Label x:Name="lbSala" Content="Sala:" HorizontalAlignment="Left" Margin="10,107,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift"/>
+        <ComboBox x:Name="cboSala" HorizontalAlignment="Left" Margin="81,108,0,0" VerticalAlignment="Top" Width="135"/>
+        <Label Content="MINHAS AULAS" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top" FontSize="15" FontFamily="Bahnschrift"/>
+
+        <Button x:Name="btnMarcarAula" Content="MARCAR AULA" HorizontalAlignment="Left" Margin="19,148,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" Click="btnMarcarAula_Click" Width="92" Height="29"/>
+        <Button x:Name="btnCancelarAula" Content="CACELAR AULA" HorizontalAlignment="Left" Margin="148,147,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" Click="btnCancelarAula_Click" Height="29" Width="94"/>
+        <Label Content="Data:" HorizontalAlignment="Left" Margin="245,39,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift"/>
+        <DataGrid x:Name="dgAulas" AutoGenerateColumns="False" Margin="18,226,18,10" FontFamily="Bahnschrift">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}"
                                     Header="Id" Width="1*" Visibility="Collapsed"/>
@@ -41,6 +41,9 @@
                                     Header="Sala" Width="1*"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Label Content="CADASTRAR AULA" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" FontSize="15" FontFamily="Bahnschrift"/>
+        <Image Height="93" Margin="573,39,97,0" VerticalAlignment="Top" Source="/Views/capeloo.png"/>
+        <Label Content="CAPELO" HorizontalAlignment="Left" Margin="574,121,0,0" VerticalAlignment="Top" Height="53" Width="128" FontSize="28" FontFamily="MV Boli"/>
 
     </Grid>
 </Window>

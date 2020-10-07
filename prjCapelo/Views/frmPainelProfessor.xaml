@@ -6,22 +6,23 @@
         xmlns:local="clr-namespace:prjCapelo.Views"
         mc:Ignorable="d"
         Title="frmPainelProfessor" Height="450" Width="800" Loaded="Window_Loaded">
-    <Grid>        
+    <Grid>
         <Menu Height="20" Padding="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="800" Grid.ColumnSpan="2">
-            <MenuItem Header="_Usuario">
+            <MenuItem Header="_Usuario" >
                 <MenuItem x:Name="menuCadastrarUsuario" Header="_Cadastrar" Click="menuCadastrarUsuario_Click"/>
+                <MenuItem x:Name="menuBuscarUsuario" Header="Buscar" Click="menuBuscarUsuarios_Click"/>
             </MenuItem>
             <MenuItem x:Name="menuCadastrarSala" Header="_Sala" Click="menuCadastrarSala_Click"/>
             <MenuItem x:Name="menuCadastrarDisciplina" Header="_Disciplina" Click="menuCadastrarDisciplina_Click"/>
         </Menu>
 
-        <Image Height="117" Margin="556,281,42,0" VerticalAlignment="Top" Source="/Views/capeloo.png" Grid.Column="1"/>
-        <Label Content="CAPELO" HorizontalAlignment="Left" Margin="556,389,0,0" VerticalAlignment="Top" Height="53" Width="148" FontSize="35" FontFamily="MV Boli" Grid.Column="1"/>
-        <Label Content="Minhas Aulas:" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <DataGrid x:Name="dgAulas" AutoGenerateColumns="False" Margin="10,52,10,225">
+        <Image Height="44" Margin="582,25,134,0" VerticalAlignment="Top" Source="/Views/capeloo.png"/>
+        <Label Content="CAPELO" HorizontalAlignment="Left" Margin="659,26,0,0" VerticalAlignment="Top" Height="42" Width="95" FontSize="20" FontFamily="MV Boli"/>
+        <Label Content="MINHAS AULAS" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift"/>
+        <DataGrid x:Name="dgAulas" AutoGenerateColumns="False" Margin="10,77,10,10" FontFamily="Bahnschrift">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}"
-                                    Header="Id" Width="1*" Visibility="Collapsed"/>                
+                                    Header="Id" Width="1*" Visibility="Collapsed"/>
                 <DataGridTextColumn Binding="{Binding Aluno}"
                                     Header="Aluno" Width="1*"/>
                 <DataGridTextColumn Binding="{Binding Data}"

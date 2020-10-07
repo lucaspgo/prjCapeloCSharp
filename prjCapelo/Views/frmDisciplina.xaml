@@ -22,9 +22,9 @@
         <Button x:Name="btnAlterar" Content="ALTERAR" HorizontalAlignment="Left" Margin="100,135,0,0" VerticalAlignment="Top" Height="20" Width="58" FontSize="10" FontFamily="Bahnschrift SemiBold" Click="btnAlterar_Click"/>
         <Button x:Name="btnExcluir" Content="EXCLUIR" HorizontalAlignment="Left" Margin="172,135,0,0" VerticalAlignment="Top" Height="20" Width="52" FontSize="10" FontFamily="Bahnschrift SemiBold" Click="btnExcluir_Click"/>
         <Label x:Name="lbNome" Content="Nome:" HorizontalAlignment="Left" Margin="20,57,0,0" VerticalAlignment="Top" Height="31" Width="47" FontSize="13" FontFamily="Bahnschrift"/>
-        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="69,63,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Height="15"/>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="69,60,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Height="22"/>
         <Label x:Name="lbSigla" Content="Sigla:" HorizontalAlignment="Left" Margin="20,92,0,0" VerticalAlignment="Top" Height="31" Width="47" FontSize="13" FontFamily="Bahnschrift"/>
-        <TextBox x:Name="txtSigla" HorizontalAlignment="Left" Margin="69,97,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Height="15"/>
+        <TextBox x:Name="txtSigla" HorizontalAlignment="Left" Margin="69,95,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Height="22"/>
         <Label x:Name="lbTitulo" Content="DISCIPLINA" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="31" Width="109" FontSize="18" FontFamily="Bahnschrift"/>
         <Image Height="85" Margin="382,26,34,0" VerticalAlignment="Top" Source="/Views/capeloo.png"/>
         <Label Content="CAPELO" HorizontalAlignment="Left" Margin="378,97,0,0" VerticalAlignment="Top" Height="44" Width="112" FontSize="26" FontFamily="MV Boli"/>

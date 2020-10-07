@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="frmBuscarUsuarios" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <DataGrid x:Name="dgUsuarios" AutoGenerateColumns="False" Initialized="dgUsuarios_Initialized" Margin="12,176,12,29" FontFamily="Bahnschrift SemiBold">
+        <DataGrid x:Name="dgUsuarios" AutoGenerateColumns="False" Initialized="dgUsuarios_Initialized" Margin="12,102,12,23" FontFamily="Bahnschrift SemiBold">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" 
                                     Header="Id" Width="1*" Visibility="Collapsed"/>
@@ -20,14 +20,14 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <ComboBox x:Name="cboUsuario" HorizontalAlignment="Left" Margin="20,58,0,0" VerticalAlignment="Top" Width="207" SelectionChanged="cboUsuario_SelectionChanged">
+        <ComboBox x:Name="cboUsuario" HorizontalAlignment="Left" Margin="12,53,0,0" VerticalAlignment="Top" Width="207" SelectionChanged="cboUsuario_SelectionChanged" Height="29">
             <ComboBoxItem Content="Alunos"/>
             <ComboBoxItem Content="Professores"/>
 
         </ComboBox>
-        <Label x:Name="lbTitulo" Content="LISTAGEM DE USUARIOS" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="31" Width="207" FontSize="18" FontFamily="Bahnschrift"/>
-        <Image Height="85" Margin="609,26,34,0" VerticalAlignment="Top" Source="/Views/capeloo.png"/>
-        <Label Content="CAPELO" HorizontalAlignment="Left" Margin="631,108,0,0" VerticalAlignment="Top" Height="44" Width="115" FontSize="26" FontFamily="MV Boli"/>
+        <Label x:Name="lbTitulo" Content="LISTAGEM DE USUARIOS" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Height="31" Width="207" FontSize="18" FontFamily="Bahnschrift"/>
+        <Image Height="56" Margin="573,20,129,0" VerticalAlignment="Top" Source="/Views/capeloo.png"/>
+        <Label Content="CAPELO" HorizontalAlignment="Left" Margin="660,26,0,0" VerticalAlignment="Top" Height="44" Width="89" FontSize="20" FontFamily="MV Boli"/>
 
     </Grid>
 </Window>

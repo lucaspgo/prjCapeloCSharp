@@ -241,5 +241,6 @@ namespace prjCapelo.Views
                        MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
     }
 }

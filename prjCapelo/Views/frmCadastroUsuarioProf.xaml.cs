@@ -55,10 +55,10 @@ namespace prjCapelo.Views
                 Disciplina disciplina = DisciplinaDAO.BuscarPorId(id);
 
                 Random randNum = new Random();
-                string matricula = $"2{randNum.Next(99)}";
+                string matricula = $"2{randNum.Next(10,99)}";
                 while (AlunoDAO.BuscarPorMatricula(Convert.ToInt32(matricula)) != null)
                 {
-                    matricula = $"2{randNum.Next(99)}";
+                    matricula = $"2{randNum.Next(10,99)}";
                 }
 
                 professor = new Professor

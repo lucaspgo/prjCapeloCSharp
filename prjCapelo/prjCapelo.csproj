@@ -15,6 +15,8 @@
     <Compile Remove="Migrations\20201005010012_CriarBanco.Designer.cs" />
     <Compile Remove="Migrations\20201005205228_CriarBanco.cs" />
     <Compile Remove="Migrations\20201005205228_CriarBanco.Designer.cs" />
+    <Compile Remove="Migrations\20201006114849_CriarBanco.cs" />
+    <Compile Remove="Migrations\20201006114849_CriarBanco.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,7 +33,6 @@
 
   <ItemGroup>
     <Folder Include="DAL\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
