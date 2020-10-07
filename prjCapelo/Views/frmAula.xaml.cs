@@ -138,8 +138,8 @@ namespace prjCapelo.Views
 
         private void btnMarcarAula_Click(object sender, RoutedEventArgs e)
         {
-            if (cboDisciplina.Text != null && cboProfessor != null && cboHoraInicio != null
-                && cboHoraFim != null && dpData != null && cboSala != null)
+            if (cboDisciplina.SelectedItem != null && cboProfessor.SelectedItem != null && cboHoraInicio.SelectedItem != null
+                && cboHoraFim.SelectedItem != null && dpData.SelectedDate != null && cboSala.SelectedItem != null)
             {
                 bool datasLiberadas = true;
                 DateTime dataInicio = Convert.ToDateTime($"{dpData.SelectedDate.Value.ToString("dd/MM/yyyy")} {cboHoraInicio.Text}");

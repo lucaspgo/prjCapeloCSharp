@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using prjCapelo.Models;
 using prjCapelo.DAL;
+using prjCapelo.Utils;
 
 namespace prjCapelo.Views
 {
@@ -30,12 +31,12 @@ namespace prjCapelo.Views
         public void LimparFormulario()
         {
             txtNome.Clear();
-            txtDataDeNasc.Clear();
+            dpDataNascimento.SelectedDate = null;
             txtNacionalidade.Clear();
             txtCPF.Clear();
             txtSexo.Clear();
             txtEmail.Clear();
-            txtDataIngresso.Clear();
+            dpDataNascimento.SelectedDate = null;
             txtSenha.Clear();
             aluno = new Aluno();
             pessoa = new Pessoa();
@@ -50,37 +51,40 @@ namespace prjCapelo.Views
         {
             if (!string.IsNullOrWhiteSpace(txtNome.Text))
             {
-                Random randNum = new Random();
-                string matricula = $"1{randNum.Next(10,99)}";
-                while(AlunoDAO.BuscarPorMatricula(Convert.ToInt32(matricula)) != null)
+                if (Validacao.ValidarCpf(txtCPF.Text.Trim()))
                 {
-                    matricula = $"1{randNum.Next(10,99)}";
-                }               
+                    Random randNum = new Random();
+                    string matricula = $"1{randNum.Next(10, 99)}";
+                    while (AlunoDAO.BuscarPorMatricula(Convert.ToInt32(matricula)) != null)
+                    {
+                        matricula = $"1{randNum.Next(10, 99)}";
+                    }
 
-                aluno = new Aluno
-                {
-                    Matricula = Convert.ToInt32(matricula),
-                    DataIngresso = Convert.ToDateTime(txtDataIngresso.Text),
-                    Senha = txtSenha.Text,
-                    NomeCompleto = txtNome.Text,
-                    DataNascimento = Convert.ToDateTime(txtDataDeNasc.Text),
-                    Nacionalidade = txtNacionalidade.Text,
-                    Cpf = txtCPF.Text,
-                    Sexo = txtSexo.Text,
-                    Email = txtEmail.Text
-                };
+                    aluno = new Aluno
+                    {
+                        Matricula = Convert.ToInt32(matricula),
+                        DataIngresso = dpDataIngresso.SelectedDate.Value,
+                        Senha = txtSenha.Text,
+                        NomeCompleto = txtNome.Text,
+                        DataNascimento = dpDataNascimento.SelectedDate.Value,
+                        Nacionalidade = txtNacionalidade.Text,
+                        Cpf = txtCPF.Text,
+                        Sexo = txtSexo.Text,
+                        Email = txtEmail.Text
+                    };
 
-               
-                if (AlunoDAO.Cadastrar(aluno))
-                {
-                    MessageBox.Show($"Usuário cadastrado com sucesso! Matricula: {matricula}", "Cadastrar Usuário",
-                        MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    if (AlunoDAO.Cadastrar(aluno))
+                    {
+                        MessageBox.Show($"Usuário cadastrado com sucesso! Matricula: {matricula}", "Cadastrar Usuário",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
                         LimparFormulario();
-                }
-                else
-                {
-                    MessageBox.Show("Usuário já existe!", "Cadastrar Usuário",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuário já existe!", "Cadastrar Usuário",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
 
             }

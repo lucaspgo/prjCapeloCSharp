@@ -51,7 +51,6 @@ namespace prjCapelo.DAL
 
         public static List<Aula> BuscarPorProfessoreData(int idAluno, int idProfessor, DateTime data) =>
             _context.Aula.Include(x => x.Professor)
-            .Where(x => x.Professor.Matricula == idProfessor)
             .Where(x => x.Aluno.Matricula == idAluno)
             .Where(x => x.Data == data)
             .ToList();

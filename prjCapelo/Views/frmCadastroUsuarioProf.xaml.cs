@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using prjCapelo.Models;
 using prjCapelo.DAL;
+using prjCapelo.Utils;
 
 namespace prjCapelo.Views
 {
@@ -30,12 +31,12 @@ namespace prjCapelo.Views
         public void LimparFormulario()
         {
             txtNome.Clear();
-            txtDataDeNasc.Clear();
+            dpDataNascimento.SelectedDate = null;
             txtNacionalidade.Clear();
             txtCPF.Clear();
             txtSexo.Clear();
             txtEmail.Clear();
-            txtDataIngresso.Clear();
+            dpDataNascimento.SelectedDate = null;
             txtSenha.Clear();
             professor = new Professor();
             pessoa = new Pessoa();
@@ -51,43 +52,45 @@ namespace prjCapelo.Views
             
             if (!string.IsNullOrWhiteSpace(txtNome.Text))
             {
-                int id = (int)cboDisciplina.SelectedValue;
-                Disciplina disciplina = DisciplinaDAO.BuscarPorId(id);
-
-                Random randNum = new Random();
-                string matricula = $"2{randNum.Next(10,99)}";
-                while (AlunoDAO.BuscarPorMatricula(Convert.ToInt32(matricula)) != null)
+                if (Validacao.ValidarCpf(txtCPF.Text.Trim()))
                 {
-                    matricula = $"2{randNum.Next(10,99)}";
+                    int id = (int)cboDisciplina.SelectedValue;
+                    Disciplina disciplina = DisciplinaDAO.BuscarPorId(id);
+
+                    Random randNum = new Random();
+                    string matricula = $"2{randNum.Next(10, 99)}";
+                    while (AlunoDAO.BuscarPorMatricula(Convert.ToInt32(matricula)) != null)
+                    {
+                        matricula = $"2{randNum.Next(10, 99)}";
+                    }
+
+                    professor = new Professor
+                    {
+                        Matricula = Convert.ToInt32(matricula),
+                        DataIngresso = dpDataIngresso.SelectedDate.Value,
+                        Senha = txtSenha.Text,
+                        NomeCompleto = txtNome.Text,
+                        DataNascimento = dpDataNascimento.SelectedDate.Value,
+                        Nacionalidade = txtNacionalidade.Text,
+                        Cpf = txtCPF.Text,
+                        Sexo = txtSexo.Text,
+                        Email = txtEmail.Text,
+                        Disciplina = disciplina
+                    };
+
+
+                    if (ProfessorDAO.Cadastrar(professor))
+                    {
+                        MessageBox.Show($"Usuário cadastrado com sucesso! Matricula: {matricula}", "Cadastrar Usuário",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+                        LimparFormulario();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuário já existe!", "Cadastrar Usuário",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
-
-                professor = new Professor
-                {
-                    Matricula = Convert.ToInt32(matricula),
-                    DataIngresso = Convert.ToDateTime(txtDataIngresso.Text),
-                    Senha = txtSenha.Text,
-                    NomeCompleto = txtNome.Text,
-                    DataNascimento = Convert.ToDateTime(txtDataDeNasc.Text),
-                    Nacionalidade = txtNacionalidade.Text,
-                    Cpf = txtCPF.Text,
-                    Sexo = txtSexo.Text,
-                    Email = txtEmail.Text,
-                    Disciplina = disciplina
-                };
-
-
-                if (ProfessorDAO.Cadastrar(professor))
-                {
-                    MessageBox.Show($"Usuário cadastrado com sucesso! Matricula: {matricula}", "Cadastrar Usuário",
-                        MessageBoxButton.OK, MessageBoxImage.Information);
-                    LimparFormulario();
-                }
-                else
-                {
-                    MessageBox.Show("Usuário já existe!", "Cadastrar Usuário",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-
             }
             else
             {
