@@ -78,9 +78,9 @@ namespace prjCapelo.Views
 
                 if (ProfessorDAO.Cadastrar(professor))
                 {
-                    MessageBox.Show("Usuário cadastrado com sucesso!", "Cadastrar Usuário",
+                    MessageBox.Show($"Usuário cadastrado com sucesso! Matricula: {matricula}", "Cadastrar Usuário",
                         MessageBoxButton.OK, MessageBoxImage.Information);
-                        LimparFormulario();
+                    LimparFormulario();
                 }
                 else
                 {

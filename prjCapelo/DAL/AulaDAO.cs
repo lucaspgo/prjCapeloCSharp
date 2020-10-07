@@ -49,15 +49,19 @@ namespace prjCapelo.DAL
         public static Aula BuscarPorId(int id) =>
             _context.Aula.Find(id);
 
-        public static List<Aula> BuscarPorProfessoreData(int idProfessor, DateTime data) =>
-            _context.Aula.Include(x => x.Professor).Where(x => x.Professor.Matricula == idProfessor).Where(x => x.Data == data).ToList();
+        public static List<Aula> BuscarPorProfessoreData(int idAluno, int idProfessor, DateTime data) =>
+            _context.Aula.Include(x => x.Professor)
+            .Where(x => x.Professor.Matricula == idProfessor)
+            .Where(x => x.Aluno.Matricula == idAluno)
+            .Where(x => x.Data == data)
+            .ToList();
 
         public static List<Aula> BuscarPorMatriculaAluno(int matricula) =>
             _context.Aula
             .Include(x => x.Aluno)
             .Include(x => x.Sala)
             .Include(x => x.Professor.Disciplina)
-            .Where(x => x.Aluno.Matricula == matricula)
+            .Where(x => x.Aluno.Matricula == matricula).OrderByDescending(x => x.DataInicio).ThenBy(x => x.DataFim)
             .AsNoTracking()
             .ToList();
 
@@ -66,7 +70,7 @@ namespace prjCapelo.DAL
             .Include(x => x.Aluno)
             .Include(x => x.Sala)
             .Include(x => x.Professor.Disciplina)
-            .Where(x => x.Professor.Matricula == matricula)
+            .Where(x => x.Professor.Matricula == matricula).OrderByDescending(x => x.DataInicio).ThenBy(x => x.DataFim)
             .AsNoTracking()
             .ToList();
 

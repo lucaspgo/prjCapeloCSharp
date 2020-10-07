@@ -23,7 +23,7 @@ namespace prjCapelo.DAL
         }
        
         public static List<Sala> Listar() =>
-            _context.Sala.ToList();
+            _context.Sala.OrderBy(x => x.Nome).ToList();
         public static Sala BuscarPorId(int id) =>
             _context.Sala.Find(id);
 

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="frmBuscarUsuarios" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <DataGrid x:Name="dgUsuarios" AutoGenerateColumns="False" Initialized="dgUsuarios_Initialized" Margin="12,102,12,23" FontFamily="Bahnschrift SemiBold">
+        <DataGrid x:Name="dgUsuarios" AutoGenerateColumns="False" Initialized="dgUsuarios_Initialized" Margin="12,102,12,23" FontFamily="Bahnschrift SemiBold" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" 
                                     Header="Id" Width="1*" Visibility="Collapsed"/>

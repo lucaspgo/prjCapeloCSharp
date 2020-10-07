@@ -15,7 +15,10 @@ namespace prjCapelo.DAL
             _context.Professor.FirstOrDefault(x => x.Matricula == matricula);
 
         public static List<Professor> BuscarPorDisciplina(int idDisciplina) =>
-            _context.Professor.Include(x => x.Disciplina).Where(x => x.Disciplina.Id == idDisciplina).ToList();
+            _context.Professor.Include(x => x.Disciplina)
+            .Where(x => x.Disciplina.Id == idDisciplina)
+            .Where(x => x.Matricula != 200)
+            .OrderBy(x => x.NomeCompleto).ToList();
 
         public static bool Cadastrar(Professor professor)
         {
@@ -38,7 +41,9 @@ namespace prjCapelo.DAL
             _context.SaveChanges();
         }
         public static List<Professor>Listar()=>
-            _context.Professor.Include(x=> x.Disciplina).ToList();
+            _context.Professor.Include(x=> x.Disciplina)
+            .Where(x => x.Matricula != 200)
+            .ToList();
         public static Professor BuscarPorId(int id) =>
             _context.Professor.Find(id);
     }

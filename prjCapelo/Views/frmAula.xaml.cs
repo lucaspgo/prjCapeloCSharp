@@ -145,7 +145,7 @@ namespace prjCapelo.Views
                 DateTime dataInicio = Convert.ToDateTime($"{dpData.SelectedDate.Value.ToString("dd/MM/yyyy")} {cboHoraInicio.Text}");
                 DateTime dataFim = Convert.ToDateTime($"{dpData.SelectedDate.Value.ToString("dd/MM/yyyy")} {cboHoraFim.Text}");
 
-                foreach (Aula aula in AulaDAO.BuscarPorProfessoreData(Convert.ToInt32(cboProfessor.SelectedValue), Convert.ToDateTime(dpData.SelectedDate)))
+                foreach (Aula aula in AulaDAO.BuscarPorProfessoreData(Convert.ToInt32(((frmLogin)Application.Current.MainWindow).txtLogin.Text), Convert.ToInt32(cboProfessor.SelectedValue), Convert.ToDateTime(dpData.SelectedDate)))
                 {
                     
                     if ((dataInicio >= aula.DataInicio && dataInicio < aula.DataFim))

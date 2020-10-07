@@ -10,7 +10,7 @@ namespace prjCapelo.DAL
     {
         private static Context _context = SingletonContext.GetInstance();
 
-        public static List<Disciplina> Listar() => _context.Disciplina.ToList();
+        public static List<Disciplina> Listar() => _context.Disciplina.OrderBy(x => x.Nome).ToList();
         public static Disciplina BuscarPorId(int id) => _context.Disciplina.Find(id);
         public static Boolean Alterar(Disciplina disciplina)
         {

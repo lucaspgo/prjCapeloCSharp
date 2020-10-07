@@ -23,7 +23,7 @@
         <Button x:Name="btnMarcarAula" Content="MARCAR AULA" HorizontalAlignment="Left" Margin="19,148,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" Click="btnMarcarAula_Click" Width="92" Height="29"/>
         <Button x:Name="btnCancelarAula" Content="CACELAR AULA" HorizontalAlignment="Left" Margin="148,147,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" Click="btnCancelarAula_Click" Height="29" Width="94"/>
         <Label Content="Data:" HorizontalAlignment="Left" Margin="245,39,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift"/>
-        <DataGrid x:Name="dgAulas" AutoGenerateColumns="False" Margin="18,226,18,10" FontFamily="Bahnschrift">
+        <DataGrid x:Name="dgAulas" AutoGenerateColumns="False" Margin="18,226,18,10" FontFamily="Bahnschrift" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}"
                                     Header="Id" Width="1*" Visibility="Collapsed"/>
