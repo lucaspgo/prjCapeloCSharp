@@ -55,19 +55,26 @@ namespace prjCapelo.Views
                 while(AlunoDAO.BuscarPorMatricula(Convert.ToInt32(matricula)) != null)
                 {
                     matricula = $"1{randNum.Next(99)}";
-                }               
+                }
+
+                pessoa = new Pessoa
+                {                    
+                    NomeCompleto = txtNome.Text,
+                    DataNascimento = Convert.ToDateTime(txtDataDeNasc.Text),
+                    Nacionalidade = txtNacionalidade.Text,
+                    Cpf = txtCPF.Text,
+                    Sexo = txtSexo.Text,
+                    Email = txtEmail.Text,
+
+                };
 
                 aluno = new Aluno
                 {
                     Matricula = Convert.ToInt32(matricula),
                     DataIngresso = Convert.ToDateTime(txtDataIngresso.Text),
                     Senha = txtSenha.Text,
-                    NomeCompleto = txtNome.Text,
-                    DataNascimento = Convert.ToDateTime(txtDataDeNasc.Text),
-                    Nacionalidade = txtNacionalidade.Text,
-                    Cpf = txtCPF.Text,
-                    Sexo = txtSexo.Text,
-                    Email = txtEmail.Text
+                    Pessoa = pessoa
+
                 };
 
                

@@ -35,24 +35,24 @@ namespace prjCapelo.Views
 
         private void PopularDataGrid()
         {
-            aulas = new List<dynamic>();
-            List<Aula> aulaTeste = AulaDAO.BuscarPorMatriculaAluno(Convert.ToInt32(((frmLogin)Application.Current.MainWindow).txtLogin.Text));
-            foreach (Aula aula in aulaTeste)
+            List<Aula> aulasGrid = AulaDAO.BuscarPorMatricula(Convert.ToInt32(((frmLogin)Application.Current.MainWindow).txtLogin.Text));
+            foreach (Aula aula in aulasGrid)
             {
                 dynamic item = new
                 {
                     Id = aula.Id,
                     Disciplina = aula.Professor.Disciplina.Nome,
-                    NomeProfessor = aula.Professor.NomeCompleto,
+                    NomeProfessor = aula.Professor.Pessoa.NomeCompleto,
                     Data = aula.Data.ToString("dd/MM/yyyy"),
                     Inicio = aula.DataInicio.ToString("HH:mm"),
-                    Fim = aula.DataFim.ToString("HH:mm"),
-                    Sala = aula.Sala.Nome
+                    Fim = aula.DataFim.ToString("HH:mm")
                 };
                 aulas.Add(item);
             }
             dgAulas.ItemsSource = aulas;
             dgAulas.Items.Refresh();
+
+            aulas = new List<dynamic>();
         }
 
         private void CarregarComboBoxes()
@@ -116,7 +116,7 @@ namespace prjCapelo.Views
         {
             List<Professor> professores = ProfessorDAO.BuscarPorDisciplina(Convert.ToInt32(cboDisciplina.SelectedValue));
             cboProfessor.ItemsSource = professores;
-            cboProfessor.DisplayMemberPath = "NomeCompleto";
+            cboProfessor.DisplayMemberPath = "Pessoa.NomeCompleto";
             cboProfessor.SelectedValuePath = "Matricula";
 
             if (professores != null)
@@ -161,7 +161,7 @@ namespace prjCapelo.Views
                         if (datasLiberadas)
                         {
                             int idProfessor = (int)cboProfessor.SelectedValue;
-                            Professor professor = ProfessorDAO.BuscarPorMatricula(idProfessor);
+                            Professor professor = ProfessorDAO.BuscarPorId(idProfessor);
 
                             int idSala = (int)cboSala.SelectedValue;
                             Sala sala = SalaDAO.BuscarPorId(idSala);

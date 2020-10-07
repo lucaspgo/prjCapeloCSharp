@@ -1,6 +1,4 @@
-﻿using prjCapelo.DAL;
-using prjCapelo.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -19,8 +17,6 @@ namespace prjCapelo.Views
     /// </summary>
     public partial class frmPainelProfessor : Window
     {
-        private List<dynamic> aulas = new List<dynamic>();
-        Aula aula;
         public frmPainelProfessor()
         {
             InitializeComponent();
@@ -47,32 +43,6 @@ namespace prjCapelo.Views
         {
             frmSala frm = new frmSala();
             frm.ShowDialog();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            PopularDataGrid();
-        }
-
-        private void PopularDataGrid()
-        {
-            aulas = new List<dynamic>();
-            List<Aula> aulaTeste = AulaDAO.BuscarPorMatriculaProfessor(Convert.ToInt32(((frmLogin)Application.Current.MainWindow).txtLogin.Text));
-            foreach (Aula aula in aulaTeste)
-            {
-                dynamic item = new
-                {
-                    Id = aula.Id,
-                    Aluno = aula.Aluno.NomeCompleto,
-                    Data = aula.Data.ToString("dd/MM/yyyy"),
-                    Inicio = aula.DataInicio.ToString("HH:mm"),
-                    Fim = aula.DataFim.ToString("HH:mm"),
-                    Sala = aula.Sala.Nome
-                };
-                aulas.Add(item);
-            }
-            dgAulas.ItemsSource = aulas;
-            dgAulas.Items.Refresh();
         }
     }
 }

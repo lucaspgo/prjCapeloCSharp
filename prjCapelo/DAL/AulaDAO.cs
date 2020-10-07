@@ -10,7 +10,7 @@ namespace prjCapelo.DAL
     class AulaDAO
     {
         private static Context _context = SingletonContext.GetInstance();
-
+        
         public static bool Cadastrar(Aula aula)
         {
             try
@@ -23,7 +23,7 @@ namespace prjCapelo.DAL
             {
                 return false;
             }
-
+            
         }
         public static Boolean Remover(Aula aula)
         {
@@ -37,7 +37,7 @@ namespace prjCapelo.DAL
             {
                 return false;
             }
-
+            
         }
         public static void Alterar(Aula aula)
         {
@@ -50,26 +50,9 @@ namespace prjCapelo.DAL
             _context.Aula.Find(id);
 
         public static List<Aula> BuscarPorProfessoreData(int idProfessor, DateTime data) =>
-            _context.Aula.Include(x => x.Professor).Where(x => x.Professor.Matricula == idProfessor).Where(x => x.Data == data).ToList();
+            _context.Aula.Include(x => x.Professor.Pessoa).Where(x => x.Professor.Matricula == idProfessor).Where(x => x.Data == data).ToList();
 
-        public static List<Aula> BuscarPorMatriculaAluno(int matricula) =>
-            _context.Aula
-            .Include(x => x.Aluno)
-            .Include(x => x.Sala)
-            .Include(x => x.Professor.Disciplina)
-            .Where(x => x.Aluno.Matricula == matricula)
-            .AsNoTracking()
-            .ToList();
-
-        public static List<Aula> BuscarPorMatriculaProfessor(int matricula) =>
-            _context.Aula
-            .Include(x => x.Aluno)
-            .Include(x => x.Sala)
-            .Include(x => x.Professor.Disciplina)
-            .Where(x => x.Professor.Matricula == matricula)
-            .AsNoTracking()
-            .ToList();
-
-
+        public static List<Aula> BuscarPorMatricula(int matricula) =>
+            _context.Aula.Include(x => x.Professor).ThenInclude(prof => prof.Pessoa).Include(x => x.Professor).ThenInclude(prof => prof.Disciplina).Include(x => x.Aluno.Pessoa).Include(x => x.Professor).Include(x => x.Sala).Include(x => x.Aluno.Pessoa).Where(x => x.Aluno.Matricula == matricula).ToList();
     }
 }
