@@ -61,25 +61,18 @@ namespace prjCapelo.Views
                     matricula = $"2{randNum.Next(99)}";
                 }
 
-                pessoa = new Pessoa
+                professor = new Professor
                 {
+                    Matricula = Convert.ToInt32(matricula),
+                    DataIngresso = Convert.ToDateTime(txtDataIngresso.Text),
+                    Senha = txtSenha.Text,
                     NomeCompleto = txtNome.Text,
                     DataNascimento = Convert.ToDateTime(txtDataDeNasc.Text),
                     Nacionalidade = txtNacionalidade.Text,
                     Cpf = txtCPF.Text,
                     Sexo = txtSexo.Text,
                     Email = txtEmail.Text,
-
-                };
-
-                professor = new Professor
-                {
-                    Matricula = Convert.ToInt32(matricula),
-                    DataIngresso = Convert.ToDateTime(txtDataIngresso.Text),
-                    Senha = txtSenha.Text,
-                    Pessoa = pessoa,
                     Disciplina = disciplina
-
                 };
 
 
