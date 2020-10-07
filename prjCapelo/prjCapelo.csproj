@@ -13,6 +13,8 @@
     <Compile Remove="Migrations\20201005005055_CriarBanco.Designer.cs" />
     <Compile Remove="Migrations\20201005010012_CriarBanco.cs" />
     <Compile Remove="Migrations\20201005010012_CriarBanco.Designer.cs" />
+    <Compile Remove="Migrations\20201005193626_CriarBanco.cs" />
+    <Compile Remove="Migrations\20201005193626_CriarBanco.Designer.cs" />
     <Compile Remove="Migrations\20201005205228_CriarBanco.cs" />
     <Compile Remove="Migrations\20201005205228_CriarBanco.Designer.cs" />
   </ItemGroup>
