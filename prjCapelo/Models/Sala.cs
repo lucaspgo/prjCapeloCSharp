@@ -6,5 +6,6 @@ namespace prjCapelo.Models
     class Sala : BaseModel
     {
         public string Nome { get; set; }
+        public double Dimensao { get; set; }
     }
 }

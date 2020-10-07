@@ -35,6 +35,7 @@ namespace prjCapelo.Views
                 {
                     Id = sala.Id,
                     Nome = sala.Nome,
+                    Dimensao = sala.Dimensao
                 };
                 salas.Add(item);
             }
@@ -62,6 +63,7 @@ namespace prjCapelo.Views
             if (sala != null)
             {
                 txtNome.Text = sala.Nome.ToString();
+                txtDimensao.Text = sala.Dimensao.ToString();
             }
         }
 
@@ -71,9 +73,10 @@ namespace prjCapelo.Views
             if (dgSala.SelectedItem != null)
             {
                 sala = SalaDAO.BuscarPorId(((dynamic)dgSala.SelectedItem).Id);
-                if (txtNome.Text != null)
+                if (txtNome.Text != null && txtDimensao.Text != null)
                 {
                     sala.Nome = txtNome.Text;
+                    sala.Dimensao = Convert.ToDouble(txtDimensao.Text);
                     if (SalaDAO.Alterar(sala))
                     {
                         PopularDataGrid();
@@ -133,6 +136,7 @@ namespace prjCapelo.Views
                 sala = new Sala
                 {
                     Nome = txtNome.Text,
+                    Dimensao = Convert.ToDouble(txtDimensao.Text)
                 };
 
                 if (SalaDAO.Cadastrar(sala))

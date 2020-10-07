@@ -18,12 +18,14 @@
                     Header="Id" Width="1*" Visibility="Collapsed"/>
                 <DataGridTextColumn Binding="{Binding Nome}" 
                     Header="Sala" Width="1*"/>
+                <DataGridTextColumn Binding="{Binding Dimensao}" 
+                    Header="Dimensão(m²)" Width="1*"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="btnCadastrar" Content="CADASTRAR" HorizontalAlignment="Left" Margin="20,106,0,0" VerticalAlignment="Top" Height="20" Width="66" FontSize="10" FontFamily="Bahnschrift SemiBold" Click="btnCadastrar_Click"/>
-        <Button x:Name="btnAlterar" Content="ALTERAR" HorizontalAlignment="Left" Margin="100,106,0,0" VerticalAlignment="Top" Height="20" Width="58" FontSize="10" FontFamily="Bahnschrift SemiBold" Click="btnAlterar_Click"/>
-        <Button x:Name="btnExcluir" Content="EXCLUIR" HorizontalAlignment="Left" Margin="172,106,0,0" VerticalAlignment="Top" Height="20" Width="52" FontSize="10" FontFamily="Bahnschrift SemiBold" Click="btnExcluir_Click"/>
+        <Button x:Name="btnCadastrar" Content="CADASTRAR" HorizontalAlignment="Left" Margin="19,132,0,0" VerticalAlignment="Top" Height="20" Width="66" FontSize="10" FontFamily="Bahnschrift SemiBold" Click="btnCadastrar_Click"/>
+        <Button x:Name="btnAlterar" Content="ALTERAR" HorizontalAlignment="Left" Margin="99,132,0,0" VerticalAlignment="Top" Height="20" Width="58" FontSize="10" FontFamily="Bahnschrift SemiBold" Click="btnAlterar_Click"/>
+        <Button x:Name="btnExcluir" Content="EXCLUIR" HorizontalAlignment="Left" Margin="171,132,0,0" VerticalAlignment="Top" Height="20" Width="52" FontSize="10" FontFamily="Bahnschrift SemiBold" Click="btnExcluir_Click"/>
         <Label x:Name="lbNome" Content="Nome:" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="31" Width="47" FontSize="13" FontFamily="Bahnschrift"/>
         <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="68,60,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Height="25"/>
         <Label x:Name="lbTitulo" Content="SALA" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="31" Width="109" FontSize="18" FontFamily="Bahnschrift"/>
@@ -38,6 +40,8 @@
             </Image.RenderTransform>
         </Image>
         <Label Content="CAPELO" HorizontalAlignment="Left" Margin="270,94,0,0" VerticalAlignment="Top" Height="44" Width="112" FontSize="26" FontFamily="MV Boli"/>
+        <Label x:Name="lbDimensao" Content="Dimensão(m²):" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Height="31" Width="94" FontSize="13" FontFamily="Bahnschrift"/>
+        <TextBox x:Name="txtDimensao" HorizontalAlignment="Left" Margin="118,94,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Height="25"/>
 
     </Grid>
 </Window>
