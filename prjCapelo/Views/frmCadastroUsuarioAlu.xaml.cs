@@ -36,7 +36,7 @@ namespace prjCapelo.Views
             txtCPF.Clear();
             txtSexo.Clear();
             txtEmail.Clear();
-            dpDataNascimento.SelectedDate = null;
+            dpDataIngresso.SelectedDate = null;
             txtSenha.Clear();
             aluno = new Aluno();
             pessoa = new Pessoa();
