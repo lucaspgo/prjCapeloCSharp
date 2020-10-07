@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:prjCapelo.Views"
         mc:Ignorable="d"
-        Title="frmPainelProfessor" Height="450" Width="800">
-    <Grid>
-        <Menu Height="20" Padding="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="800">
+        Title="frmPainelProfessor" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>        
+        <Menu Height="20" Padding="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="800" Grid.ColumnSpan="2">
             <MenuItem Header="_Usuario">
                 <MenuItem x:Name="menuCadastrarUsuario" Header="_Cadastrar" Click="menuCadastrarUsuario_Click"/>
             </MenuItem>
@@ -15,13 +15,25 @@
             <MenuItem x:Name="menuCadastrarDisciplina" Header="_Disciplina" Click="menuCadastrarDisciplina_Click"/>
         </Menu>
 
-        <Image Height="117" Margin="76,133,576,0" VerticalAlignment="Top" Source="/Views/capeloo.png"/>
-        <Label Content="CAPELO" HorizontalAlignment="Left" Margin="76,241,0,0" VerticalAlignment="Top" Height="53" Width="148" FontSize="35" FontFamily="MV Boli"/>
-
-        <Button Content="DADOS CADASTRAIS" Margin="311,124,272,0" VerticalAlignment="Top" Height="75" FontSize="18" FontFamily="Bahnschrift SemiBold"/>
-        <Button Content="AGENDA DE AULAS" HorizontalAlignment="Left" Margin="550,124,0,0" VerticalAlignment="Top" Height="75" Width="200" FontSize="18" FontFamily="Bahnschrift SemiBold"/>
-        <Button Content="CONSULTAR AULA" HorizontalAlignment="Left" Margin="311,239,0,0" VerticalAlignment="Top" Height="76" Width="200" FontSize="18" FontFamily="Bahnschrift SemiBold"/>
-        <Button x:Name="btnCadastrarUsuario" Content="CADASTRAR USUÁRIO" HorizontalAlignment="Left" Margin="550,239,0,0" VerticalAlignment="Top" Height="76" Width="200" FontSize="18" FontFamily="Bahnschrift SemiBold" Click="btnCadastrarUsuario_Click"/>
+        <Image Height="117" Margin="556,281,42,0" VerticalAlignment="Top" Source="/Views/capeloo.png" Grid.Column="1"/>
+        <Label Content="CAPELO" HorizontalAlignment="Left" Margin="556,389,0,0" VerticalAlignment="Top" Height="53" Width="148" FontSize="35" FontFamily="MV Boli" Grid.Column="1"/>
+        <Label Content="Minhas Aulas:" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <DataGrid x:Name="dgAulas" AutoGenerateColumns="False" Margin="10,52,10,225">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}"
+                                    Header="Id" Width="1*" Visibility="Collapsed"/>                
+                <DataGridTextColumn Binding="{Binding Aluno}"
+                                    Header="Aluno" Width="1*"/>
+                <DataGridTextColumn Binding="{Binding Data}"
+                                    Header="Data" Width="1*"/>
+                <DataGridTextColumn Binding="{Binding Inicio}"
+                                    Header="Início" Width="1*"/>
+                <DataGridTextColumn Binding="{Binding Fim}"
+                                    Header="Fim" Width="1*"/>
+                <DataGridTextColumn Binding="{Binding Sala}"
+                                    Header="Sala" Width="1*"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

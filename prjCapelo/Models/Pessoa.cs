@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace prjCapelo.Models
 {
-    [Table("Pessoa")]
     class Pessoa : BaseModel
     {
         public string NomeCompleto { get; set; }

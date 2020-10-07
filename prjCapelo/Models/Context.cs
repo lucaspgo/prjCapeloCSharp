@@ -10,7 +10,6 @@ namespace prjCapelo.Models
         public DbSet<Aluno> Aluno { get; set; }
         public DbSet<Aula> Aula{ get; set; }
         public DbSet<Disciplina> Disciplina { get; set; }
-        public DbSet<Pessoa> Pessoa{ get; set; }
         public DbSet<Professor> Professor { get; set; }
         public DbSet<Sala> Sala { get; set; }
 

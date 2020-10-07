@@ -21,18 +21,20 @@
         <Label Content="MINHAS AULAS" HorizontalAlignment="Left" Margin="16,205,0,0" VerticalAlignment="Top" Height="31" Width="137" FontSize="18" FontFamily="Bahnschrift"/>
         <DataGrid x:Name="dgAulas" AutoGenerateColumns="False" Margin="20,241,20,26" FontFamily="Bahnschrift">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Id}" 
+                <DataGridTextColumn Binding="{Binding Id}"
                                     Header="Id" Width="1*" Visibility="Collapsed"/>
-                <DataGridTextColumn Binding="{Binding Disciplina}" 
+                <DataGridTextColumn Binding="{Binding Disciplina}"
                                     Header="Disciplina" Width="1*"/>
-                <DataGridTextColumn Binding="{Binding NomeProfessor}" 
+                <DataGridTextColumn Binding="{Binding NomeProfessor}"
                                     Header="Professor" Width="1*"/>
-                <DataGridTextColumn Binding="{Binding Data}" 
+                <DataGridTextColumn Binding="{Binding Data}"
                                     Header="Data" Width="1*"/>
-                <DataGridTextColumn Binding="{Binding Inicio}" 
-                                    Header="Inicio" Width="1*"/>
-                <DataGridTextColumn Binding="{Binding Fim}" 
+                <DataGridTextColumn Binding="{Binding Inicio}"
+                                    Header="Início" Width="1*"/>
+                <DataGridTextColumn Binding="{Binding Fim}"
                                     Header="Fim" Width="1*"/>
+                <DataGridTextColumn Binding="{Binding Sala}"
+                                    Header="Sala" Width="1*"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnMarcarAula" Content="Marcar Aula" HorizontalAlignment="Left" Margin="34,167,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" Click="btnMarcarAula_Click" Height="24" Width="81"/>
