@@ -6,19 +6,12 @@ using System;
 namespace prjCapelo.Models
 {
     [Table("Aluno")]
-    class Aluno 
-    {
-        public Aluno()
-        {
-            Pessoa = new Pessoa();
-        }
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]        
+    class Aluno : Pessoa
+    {     
         public int Matricula { get; set; }
 
         public DateTime DataIngresso { get; set; }
 
         public string Senha { get; set; }
-
-        public Pessoa Pessoa { get; set; }
     }
 }

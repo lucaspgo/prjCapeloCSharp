@@ -5,15 +5,12 @@ using System;
 namespace prjCapelo.Models
 {
     [Table("Professor")]
-    class Professor
+    class Professor : Pessoa
     {
         public Professor()
         {
             Disciplina = new Disciplina();
-            Pessoa = new Pessoa();
         }
-
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         
         public int Matricula { get; set; }
 
@@ -22,6 +19,5 @@ namespace prjCapelo.Models
         public string Senha { get; set; }
 
         public Disciplina Disciplina { get; set; }
-        public Pessoa Pessoa { get; set; }
     }
 }
