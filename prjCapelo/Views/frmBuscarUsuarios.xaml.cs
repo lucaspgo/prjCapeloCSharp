@@ -47,10 +47,10 @@ namespace prjCapelo.Views
                 {
                     dynamic item = new
                     {
-                        Id = aluno.Pessoa.Id,
+                        Id = aluno.Id,
                         Matricula = aluno.Matricula,
-                        Nome = aluno.Pessoa.NomeCompleto,
-                        Email = aluno.Pessoa.Email
+                        Nome = aluno.NomeCompleto,
+                        Email = aluno.Email
                     };
                     alunos.Add(item);
                 }
@@ -65,10 +65,10 @@ namespace prjCapelo.Views
                 {
                     dynamic item = new
                     {
-                        Id = professor.Pessoa.Id,
+                        Id = professor.Id,
                         Matricula = professor.Matricula,
-                        Nome = professor.Pessoa.NomeCompleto,
-                        Email = professor.Pessoa.Email
+                        Nome = professor.NomeCompleto,
+                        Email = professor.Email
                     };
                     professores.Add(item);
                 }
